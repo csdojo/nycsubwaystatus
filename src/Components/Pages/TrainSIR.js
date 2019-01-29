@@ -34,9 +34,10 @@ class TrainSIR extends Component {
     }
 
     train1Status() {
+        var proxyUrl = 'https://cors-anywhere.herokuapp.com/';
         var targetUrl = 'http://web.mta.info/status/ServiceStatusSubway.xml'
         const that = this;
-        fetch(targetUrl)
+        fetch(proxyUrl+targetUrl)
             .then(response => response.text())
             .then(data => {
 
