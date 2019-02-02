@@ -21,6 +21,10 @@ class SummaryA extends Component {
     this.logo = this.logo.bind(this);
   }
 
+  componentDidMount() {
+   this.corsPolicy()
+}
+
   corsPolicy() {
     var proxyUrl = 'https://cors-anywhere.herokuapp.com/',
       targetUrl = 'http://web.mta.info/status/serviceStatus.txt'
@@ -49,50 +53,7 @@ class SummaryA extends Component {
       })
   }
 
-  componentWillMount() {
-    //call1 ServiceStatusSubway.txt
-    // var lineSummary = [] (res from call1)
-
-    //call2  'http://web.mta.info/status/ServiceStatusSubway.xml'
-    // var linedetails = [] (res from call2)
-
-    // lineList = vvvvvv
-    // lineSummary .foreach (item)
-    //if status != good service
-    //pull train information from linedatils base on line name('123', '1','2','3')
-    // return 
-    //
-    // filter call1 and retreive datils from call2
-
-  }
-  // get details
-  // lineDetails () {
-  // }
-
-
-  // getCatPicture() {
-  //   var proxyUrl = 'https://cors-anywhere.herokuapp.com/'
-
-  //   var APIKey = "fa66ddb413e7c2536fabff2a1c8878bb"
-
-  //   var  targetUrl = "http://datamine.mta.info/mta_esi.php?key=" + APIKey + "&feed_id=1"
-
-  //   fetch(proxyUrl + targetUrl)
-  //     .then(response => response.text())
-  //     .then(data => {
-  //       console.log(data);
-
-  //       parseString(data, function (err, result) {
-
-  //       });
-
-  //     })
-  //     .catch(e => {
-  //       console.log(e);
-  //       return e;
-  //     })
-  // }
-
+ 
 
   logo = (statusWord) => {
 
@@ -176,14 +137,21 @@ class SummaryA extends Component {
 
 
   }
-
+  // findW = (name) => {
+  //   if (this.props === "NQR"){
+  //     return "NQRW"
+  //   }
+  //   else {
+  //     return (this.props)
+  //   }
+  // }
+  
 
   render() {
 
     return (
 
       <div className="container text-center dogmatch widthBox ">
-        <div>{this.corsPolicy()}</div>
 
         <div className="container mx-auto all">
 
@@ -198,6 +166,7 @@ class SummaryA extends Component {
                 backgroundcolor={this.lineColor(line["name"][0])}
                 findMatch={this.findMatch}
                 matches={this.state.matches}
+                // findW = {this.findW}
               />
 
 

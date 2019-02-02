@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Station from "./Station"
 import "./style.css";
 
 const Train1A = (props) => {
@@ -43,6 +44,7 @@ const Train1A = (props) => {
       case "N":
       case "Q":
       case "R":
+      case "W":
         return "#fecb00"
         break;
       case "S":
@@ -87,7 +89,14 @@ const Train1A = (props) => {
 
             {props.longDescription}
 
+            
+
           </div>
+        </div>
+        <div>
+        {/* <Station
+        station ={props.station}
+        /> */}
         </div>
     </div>
   );
